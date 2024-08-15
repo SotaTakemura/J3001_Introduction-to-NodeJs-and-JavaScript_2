@@ -3,7 +3,7 @@
 
 ### ・操作方法
 
-こちらのサイトでは、公共交通オープンデータセンター(https://www.odpt.org)の次のオープンデータを利用しております。
+こちらのサイトでは、公共交通オープンデータセンター(https://www.odpt.org) の次のオープンデータを利用しております。
 
 * 全日空 リアルタイム出発情報 / Flight departure information of All Nippon Airways (https://ckan.odpt.org/dataset/a_flight_departure_info-ana)
 * 全日空 リアルタイム到着情報 / Flight arrival information of All Nippon Airways (https://ckan.odpt.org/dataset/a_flight_arrival_info-ana)
