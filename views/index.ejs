@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>top</title>
+
+  <style>
+    body {
+      background-color: #1a2b48; /* 背景をダークブルーに設定 */
+      color: #ffffff; /* テキストを白に設定 */
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      color: #e0e6ed; /* ヘッダーのテキストを淡い青に設定 */
+      padding: 10px;
+    }
+
+    .headline {
+      margin-right: auto;
+    }
+
+    .nav-list {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-list-item {
+      margin-left: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* ヘッダーとテーブルの間にスペースを追加 */
+      background-color: #1f3b61; /* テーブル背景を濃いブルーに設定 */
+    }
+
+    th, td {
+      border: 1px solid #3c5b7d; /* テーブルのセルの境界線を設定 */
+      padding: 8px;
+      text-align: left;
+      color: #ffffff; /* テーブルのテキストを白に設定 */
+    }
+
+    th {
+      background-color: #2a4c76; /* ヘッダーの背景を濃い青に設定 */
+    }
+
+    input.number, button.send-number {
+      margin: 10px 0;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input.number {
+      width: 150px;
+    }
+
+    button.send-number {
+      background-color: #326ba8;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    button.send-number:hover {
+      background-color: #285683;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1 class="headline">
+      <a>Opera-Ⅱ</a>
+    </h1>
+    <ul class="nav-list">
+      <li class="nav-list-item">
+        <a href="/" style="color: #e0e6ed;">Home</a>
+      </li>
+      <li class="nav-list-item"><a href="#" style="color: #e0e6ed;">About</a></li>
+      <li class="nav-list-item"><a href="#" style="color: #e0e6ed;">Topic</a></li>
+    </ul>
+  </header>
+
+  <h4 style="color: #e0e6ed;">NH便名入力 (例：NH087)</h6>
+  <input type="text" class="number" />
+  <button class="send-number">送信</button>
+
+  <table class="flight-info-table">
+    <thead>
+        <tr>
+            <th>航空会社</th>
+            <th>運航者</th>
+            <th>フライト番号</th>
+            <th>出発空港</th>
+            <th>フライトステータス</th>
+            <th>予想出発時刻</th>
+            <th>スケジュール上の出発時刻</th>
+            <th>実際の出発時刻</th>
+            <th>到着空港</th>
+            <th>予想到着時刻</th>
+            <th>スケジュール上の到着時刻</th>
+            <th>実際の到着時刻</th>
+            <th>航空機の種類</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+  <script src="/static/index.js" defer></script>
+  
+</body>
+
+</html>
