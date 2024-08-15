@@ -11,13 +11,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         .then(response => response.json())
         .then(data => {
             const tableBody = document.querySelector('.flight-info-table tbody');
-            tableBody.innerHTML = ''; // Clear the table content
+            tableBody.innerHTML = ''; 
 
-            // 出発と到着データの結合
             if (data.departure || data.arrival) {
                 const newRow = document.createElement('tr');
                 
-                // 出発データ
                 const depAirline = data.departure ? data.departure['odpt:airline'].split(':').pop() : '-';
                 const depOperator = data.departure ? data.departure['odpt:operator'].split(':').pop() : '-';
                 const depFlightNumber = data.departure ? data.departure['odpt:flightNumber'] : '-';
@@ -29,7 +27,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const depDestinationAirport = data.departure ? data.departure['odpt:destinationAirport'].split(':').pop() : '-';
                 const depAircraftType = data.departure ? data.departure['odpt:aircraftType'] : '-';
                 
-                // 到着データ
                 const arrAirline = data.arrival ? data.arrival['odpt:airline'].split(':').pop() : '-';
                 const arrOperator = data.arrival ? data.arrival['odpt:operator'].split(':').pop() : '-';
                 const arrFlightNumber = data.arrival ? data.arrival['odpt:flightNumber'] : '-';
@@ -41,7 +38,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 const arrDestinationAirport = data.arrival ? data.arrival['odpt:arrivalAirport'].split(':').pop() : '-';
                 const arrAircraftType = data.arrival ? data.arrival['odpt:aircraftType'] : '-';
 
-                // 結合して表示
                 newRow.innerHTML = `
                     <td>${depAirline || arrAirline}</td>
                     <td>${depOperator || arrOperator}</td>

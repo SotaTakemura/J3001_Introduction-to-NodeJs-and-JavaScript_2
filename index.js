@@ -9,7 +9,6 @@ const ApiToken="<ここにアクセストークンを入力>"
 
 
 
-// ルーティングとミドルウェア
 const logMiddleware = (req, res, next) => {
   console.log(req.method, req.path);
   next();
@@ -18,7 +17,6 @@ const logMiddleware = (req, res, next) => {
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 
-// 包括的エラーハンドリング
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send('Internal Server Error');
@@ -40,7 +38,6 @@ async function fetchJson(url) {
 }
 async function fetchDepartureAndArrivalData() {
     try {
-        // 出発データと到着データを並行して取得
         const [departureData, arrivalData] = await Promise.all([
             fetchJson(jsonFilePath),
             fetchJson(ArrjsonFilePath)
@@ -60,7 +57,6 @@ app.post('/api/number', express.json(), async (req, res) => {
     try {
         const data = await fetchJson();
 
-        // フライトナンバーに基づいてデータをフィルタリング
         const flightData = data.find(item => item['odpt:flightNumber'].includes(number));
 
         if (flightData) {
@@ -80,13 +76,10 @@ app.post('/api/number', express.json(), async (req, res) => {
     try {
         const { departureData, arrivalData } = await fetchDepartureAndArrivalData();
 
-        // フライトナンバーに基づいて出発データをフィルタリング
         const departureFlightData = departureData.find(item => item['odpt:flightNumber'].includes(number));
 
-        // フライトナンバーに基づいて到着データをフィルタリング
         const arrivalFlightData = arrivalData.find(item => item['odpt:flightNumber'].includes(number));
 
-        // データが見つかった場合、両方のデータをレスポンスに含める
         if (departureFlightData || arrivalFlightData) {
             res.json({
                 departure: departureFlightData || 'No departure data found',
@@ -103,17 +96,14 @@ app.post('/api/number', express.json(), async (req, res) => {
 
 
 async function main() {
-  // サーバーのlisten前に接続する
   app.post('/api/number', express.json(), (req, res) => {
     const number = req.body.number;
     console.log('Received number:', number);
 
-    // フロントエンドに送信された番号を返す
     res.json({ receivedNumber: number });
     });
 
   app.get('/user/:id', logMiddleware, (req, res) => {
-    // :idをreq.params.idとして受け取る
     res.status(200).send(req.params.id);
   });
 
